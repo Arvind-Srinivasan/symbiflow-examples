@@ -1,7 +1,7 @@
 mkfile_path := $(abspath $(lastword $(MAKEFILE_LIST)))
 current_dir := $(patsubst %/,%,$(dir $(mkfile_path)))
 TOP:=top
-VERILOG:=${current_dir}/counter.v
+VERILOG:=${current_dir}/custom.v
 DEVICE  := xc7a50t_test
 BITSTREAM_DEVICE := artix7
 BUILDDIR:=build
@@ -21,7 +21,7 @@ else ifeq ($(TARGET),zybo)
   DEVICE:= xc7z010_test
   BITSTREAM_DEVICE:= zynq7
   BOARD_BUILDDIR := ${BUILDDIR}/zybo
-  VERILOG:=${current_dir}/counter_zynq.v
+  VERILOG:=${current_dir}/custom_zynq.v
 else ifeq ($(TARGET),nexys_video)
   PARTNAME:= xc7a200tsbg484-1
   XDC:=${current_dir}/nexys_video.xdc
