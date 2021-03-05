@@ -1,10 +1,10 @@
 module top (
     input  clk,
-    output [6:0] led
+    output [15:0] led
 );
 
-    localparam BITS = 7;
-    localparam LOG2DELAY = 24;
+    localparam BITS = 16;
+    localparam LOG2DELAY = 16;
 
     wire bufg;
     BUFG bufgctrl(.I(clk), .O(bufg));
@@ -15,5 +15,5 @@ module top (
         custom <= custom + 1;
     end
 
-    assign led[6:0] = custom >> LOG2DELAY;
+    assign led[15:0] = custom >> LOG2DELAY;
 endmodule
